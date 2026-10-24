@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build and packaged output
+dist/
+build/
+out/
+release/
+
+# Test and coverage output
+coverage/
+.nyc_output/
+.vitest/
+*.lcov
+
+# TypeScript and tool caches
+*.tsbuildinfo
+.cache/
+.tmp/
+tmp/
+
+# Logs and runtime output
+*.log
+logs/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*.p12
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local Claude Code settings
+.claude/

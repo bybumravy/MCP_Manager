@@ -1,0 +1,36 @@
+{
+  "name": "claude-workspace-manager",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Windows desktop manager for Claude Code workspace resources",
+  "main": "dist/main/main/main.js",
+  "scripts": {
+    "build": "npm run build:main && vite build",
+    "build:main": "tsc -p tsconfig.main.json && vite build --config vite.preload.config.mts",
+    "dev": "npm run build:main && concurrently -k \"vite\" \"npm:dev:electron\"",
+    "dev:electron": "wait-on http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .",
+    "start": "electron .",
+    "typecheck": "tsc -p tsconfig.main.json --noEmit && tsc -p tsconfig.renderer.json --noEmit",
+    "test": "vitest --config vitest.config.cjs run",
+    "test:watch": "vitest --config vitest.config.cjs",
+    "test:desktop": "npm run build && node tests/integration/electron-runtime.cjs",
+    "lint": "tsc -p tsconfig.main.json --noEmit && tsc -p tsconfig.renderer.json --noEmit"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "electron": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "concurrently": "latest",
+    "cross-env": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest",
+    "wait-on": "latest"
+  }
+}
